@@ -8,7 +8,7 @@ export const Personajes = () => {
     actions.getPersonajes();
   }, []);
   return (
-    <div className="container-fluid">
+    <div className="row">
       <div className="banner">
         <img
           src="https://www.newera.mx/blog/wp-content/uploads/2020/05/star-wars-adivina-cual-personaje-dijo-frase-banner.jpg"
@@ -16,11 +16,15 @@ export const Personajes = () => {
         />
         <h1>Personajes</h1>
 
-        <div className="container mt-4">
-          <div className="row mt-4">
+        <div className="container">
+          <div className="row">
             <ul>
-              {store.personajes.map(function (objeto, index) {
-                return <li key={index}> objeto.name</li>;
+              {store.personajes.map(function (objeto, i) {
+                return (
+                  <div key={i}>
+                    <Card object={objeto} i={i} />
+                  </div>
+                );
               })}
             </ul>
           </div>
